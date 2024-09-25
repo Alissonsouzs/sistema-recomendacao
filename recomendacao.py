@@ -18,12 +18,13 @@ from sklearn.cluster import KMeans
 #6 usuarios e 4 filmes
 filmes_assistidos = np.array([
 
- [1, 0, 0, 1], # usuario 1: assistiu apenas o primeiro e o quarto filme
- [1, 1, 0, 0], # usuario 2: assistiu apenas o primeiro e segundo filme
- [0, 1, 1, 0], # usuario 3: assistiu apenas o segundo e terceiro filme
- [0, 0, 1, 1], # ususario 4: assistiu apenas o terceiro e quarto filme
- [1, 0, 1, 0], # usuario 5: assistiu apenas o primeiro e terceiro filme
- [0, 1, 0, 1], # usuario 6: assistiu apenas o segundo e quarto filme
+ [1, 0, 0, 1, 0, 1], # usuario 1
+ [1, 1, 0, 0, 1, 1], # usuario 2 
+ [0, 1, 1, 0, 0, 1], # usuario 3
+ [0, 0, 1, 1, 1, 1], # usuario 4
+ [1, 0, 1, 0, 0, 1], # usuario 5
+ [0, 1, 0, 1, 1, 0], # usuario 6 
+ [0, 1, 0, 1, 0, 0], # usuario 7
 ])
 
 # Treinar o modelo
