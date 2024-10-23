@@ -14,18 +14,17 @@ import numpy as np
 #KMeans, um algoritmo de agrupamento de dados
 from sklearn.cluster import KMeans
 
-#Matriz simples de avaliações de filmes (0: não assistidos 1:assistidos)
-#6 usuarios e 4 filmes
-filmes_assistidos = np.array([
+import pandas as pd
 
- [1, 0, 0, 1, 0, 1], # usuario 1
- [1, 1, 0, 0, 1, 1], # usuario 2 
- [0, 1, 1, 0, 0, 1], # usuario 3
- [0, 0, 1, 1, 1, 1], # usuario 4
- [1, 0, 1, 0, 0, 1], # usuario 5
- [0, 1, 0, 1, 1, 0], # usuario 6 
- [0, 1, 0, 1, 0, 0], # usuario 7
-])
+caminho_arquivo = '/content/filmes_100_usuarios.csv'
+
+df = pd.read_csv(caminho_arquivo)
+
+print(df.head())
+
+
+
+filmes_assistidos = df.drop(columns=["Unnamed: 0"]).values
 
 # Treinar o modelo
 # Numero de clusters(grupos)
@@ -76,7 +75,7 @@ def recomendar_filmes(filmes, filmes_assistindo, grupos_indice):
   return sorted(filmes_recomendados)
 
 # exemplo de uso da função recomendar_filmes
-filmes_assistidos_usuario = [1, 0, 1, 0] #vetor de filmes
+filmes_assistidos_usuario = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0] #vetor de filmes
  #assistidos (por exemplo, assistiu ao filme 1 e 3)
 filmes_recomendados = recomendar_filmes (filmes_assistidos_usuario, filmes_assistidos, grupos_indice)
 
